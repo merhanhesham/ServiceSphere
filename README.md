@@ -1,4 +1,4 @@
-# ServiceSphere Platform Backend API
+# ServiceSphere Freelancing Platform Backend API
 
 ServiceSphere is a robust platform designed to facilitate seamless interactions between freelancers, clients, and project teams across various industries. Our platform simplifies the process of finding, hiring, and managing freelance talent for projects ranging from simple services to extensive project collaborations. This document provides an overview of the backend API endpoints that power the ServiceSphere platform, detailing the core functionalities and technologies used.
 
