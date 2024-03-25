@@ -188,6 +188,7 @@ namespace ServiceSphere.APIs.Controllers
             {
                 return NotFound(new ApiResponse(404, "Target user not found."));
             }
+           
 
             var spec = new ProposalSpecs(PostId,postingType);
             var proposal = await _proposalRepo.GetByIdWithSpecAsync(spec);

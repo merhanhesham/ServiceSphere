@@ -21,6 +21,7 @@ namespace ServiceSphere.core.Entities.Posting
         public Category Category { get; set; }
         public string userID { get; set; }
 
+        public string? EmailAddress { get; set; }
         // nav prop for proposals
         public ICollection<Proposal> Proposals { get; set; } = new HashSet<Proposal>();
 

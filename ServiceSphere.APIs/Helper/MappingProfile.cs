@@ -6,6 +6,8 @@ using ServiceSphere.core.Entities.Agreements;
 using ServiceSphere.core.Entities.Identity;
 using ServiceSphere.core.Entities.Posting;
 using ServiceSphere.core.Entities.Services;
+using ServiceSphere.core.Entities.Users;
+using ServiceSphere.core.Entities.Users.Freelancer;
 
 namespace ServiceSphere.APIs.Helper
 {
@@ -39,7 +41,22 @@ namespace ServiceSphere.APIs.Helper
             CreateMap<ServicePosting, ServicePostingDto>().ReverseMap();
             CreateMap<ProjectPosting,GetProjectByIdDto>().ReverseMap();
 
+            CreateMap<ServiceDto, Service>();
 
+            CreateMap<Service, ServiceToReturnDto>();
+
+            CreateMap<Category, CategoryDto>().ReverseMap();
+
+            CreateMap<FreelancerProfileDto, Freelancer>()
+          .ForMember(dest => dest.Categories, opt => opt.Ignore())
+           .ForMember(dest => dest.SubCategories, opt => opt.Ignore())// Ignore Categories during AutoMapper mapping
+           .ForMember(dest => dest.experienceLevel,
+         opt => opt.MapFrom(src => Enum.Parse(typeof(ExperienceLevel), src.experienceLevel)));
+            CreateMap<Freelancer, FreelancerProfileToReturnDto>();
+            CreateMap<ClientProfileDto, Client>();
+            CreateMap<Client, ClientProfileToReturnDto>();
+
+            CreateMap<Freelancer, FreelancerDto>();
 
         }
 

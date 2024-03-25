@@ -5,6 +5,8 @@ using ServiceSphere.APIs.Helper;
 using ServiceSphere.core.Entities.Services;
 using ServiceSphere.core.Services.contract;
 using ServiceSphere.services;
+using ServiceSphere.core.Entities.Identity;
+using ServiceSphere.core.Entities.Users.Freelancer;
 
 namespace ServiceSphere.APIs.Extensions
 {
@@ -15,6 +17,12 @@ namespace ServiceSphere.APIs.Extensions
             //allow mapping
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped(typeof(IGenericRepositery<>), typeof(GenericRepositery<>));
+
+          //  services.AddScoped<IGenericRepositeryUsers<Freelancer>, GenericRepositeryUsers<Freelancer>>();
+
+            services.AddScoped(typeof(IGenericRepositeryUsers<>), typeof(GenericRepositeryUsers<>));
+           // services.AddScoped<GenericRepositeryUsers<AppUser>>();
+
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

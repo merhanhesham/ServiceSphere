@@ -40,7 +40,8 @@ namespace ServiceSphere.core.Entities.Agreements
         public ServicePosting? ServicePosting { get; set; }
 
         public string? userId { get; set; }
-        //public Freelancer  Freelancer { get; set; }
+        public string? FreelancerId { get; set; }
+        public Freelancer  Freelancer { get; set; }
 
         //navigational property for contract 
         public Contract Contract { get; set; }

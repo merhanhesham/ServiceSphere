@@ -14,7 +14,8 @@ namespace ServiceSphere.APIs.DTOs
         public string? Duration { get; set; }
 
         public DateTime? Deadline { get; set; }
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
+
     }
 
 }

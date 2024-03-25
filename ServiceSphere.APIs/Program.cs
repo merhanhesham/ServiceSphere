@@ -31,6 +31,13 @@ builder.Services.AddDbContext<AppIdentityDbContext>(OptionsBuilder =>
     OptionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
 });
 builder.Services.AddScoped<NotificationService>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyPolicy", options =>
+    {
+        options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
 
 
 var app = builder.Build();
@@ -67,7 +74,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("MyPolicy");
 app.UseAuthentication();
 
 app.UseAuthorization();

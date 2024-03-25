@@ -14,7 +14,9 @@ namespace ServiceSphere.core.Entities.Users
     {
 
         public string? Bio { get; set; }
-       
+        public string? CompanyName { get; set; }
+      
+
 
         //nav prop for contract
         public ICollection<Contract> Contracts { get; set; } = new HashSet<Contract>();

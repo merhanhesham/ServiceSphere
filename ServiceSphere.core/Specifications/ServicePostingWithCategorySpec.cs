@@ -11,7 +11,7 @@ namespace ServiceSphere.core.Specifications
     {
         public ServicePostingWithCategorySpec(PostsSpecParams @params) : base(p =>
          (!@params.CategoryId.HasValue || p.CategoryId == @params.CategoryId) &&
-         (string.IsNullOrEmpty(@params.userID) || p.userID == @params.userID))
+         (string.IsNullOrEmpty(@params.EmailAddress) || p.EmailAddress == @params.EmailAddress))
             {
                 Includes.Add(c => c.Category);
             }

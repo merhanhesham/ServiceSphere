@@ -37,6 +37,21 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.ToTable("CategoryFreelancer");
                 });
 
+            modelBuilder.Entity("FreelancerSubCategory", b =>
+                {
+                    b.Property<string>("FreelancersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("SubCategoriesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FreelancersId", "SubCategoriesId");
+
+                    b.HasIndex("SubCategoriesId");
+
+                    b.ToTable("FreelancerSubCategory");
+                });
+
             modelBuilder.Entity("ServiceSphere.core.Entities.Agreements.Contract", b =>
                 {
                     b.Property<int>("Id")
@@ -88,6 +103,10 @@ namespace ServiceSphere.repositery.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FreelancerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Inquiries")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -120,6 +139,8 @@ namespace ServiceSphere.repositery.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FreelancerId");
 
                     b.HasIndex("ProjectPostingId");
 
@@ -184,6 +205,7 @@ namespace ServiceSphere.repositery.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FreelancerId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Rating")
@@ -219,26 +241,15 @@ namespace ServiceSphere.repositery.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ZipCode")
@@ -249,7 +260,7 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.HasIndex("AppUserId")
                         .IsUnique();
 
-                    b.ToTable("Address");
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("ServiceSphere.core.Entities.Identity.AppUser", b =>
@@ -394,6 +405,9 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.Property<string>("Duration")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -477,6 +491,9 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -508,6 +525,28 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.ToTable("SubCategories");
                 });
 
+            modelBuilder.Entity("ServiceSphere.core.Entities.Users.Freelancer.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("FreelancerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FreelancerId");
+
+                    b.ToTable("Skills");
+                });
+
             modelBuilder.Entity("ServiceSphere.core.Entities.Users.Freelancer.Team", b =>
                 {
                     b.Property<int>("Id")
@@ -537,7 +576,15 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.Property<string>("Bio")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("GoogleAccount")
+                        .ValueGeneratedOnUpdateSometimes()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .ValueGeneratedOnUpdateSometimes()
                         .HasColumnType("nvarchar(max)");
 
@@ -566,15 +613,28 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.Property<string>("Overview")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .ValueGeneratedOnUpdateSometimes()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserType")
                         .ValueGeneratedOnUpdateSometimes()
                         .HasColumnType("int");
 
+                    b.Property<string>("WorkExperience")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("WorkStyle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("experienceLevel")
-                        .HasColumnType("int");
+                    b.Property<string>("experienceLevel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Freelancer");
                 });
@@ -590,6 +650,21 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", null)
                         .WithMany()
                         .HasForeignKey("FreelancersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FreelancerSubCategory", b =>
+                {
+                    b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", null)
+                        .WithMany()
+                        .HasForeignKey("FreelancersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ServiceSphere.core.Entities.Services.SubCategory", null)
+                        .WithMany()
+                        .HasForeignKey("SubCategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -615,6 +690,12 @@ namespace ServiceSphere.repositery.Data.Migrations
 
             modelBuilder.Entity("ServiceSphere.core.Entities.Agreements.Proposal", b =>
                 {
+                    b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", "Freelancer")
+                        .WithMany("Proposals")
+                        .HasForeignKey("FreelancerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("ServiceSphere.core.Entities.Posting.ProjectPosting", "ProjectPosting")
                         .WithMany("Proposals")
                         .HasForeignKey("ProjectPostingId")
@@ -624,6 +705,8 @@ namespace ServiceSphere.repositery.Data.Migrations
                         .WithMany("Proposals")
                         .HasForeignKey("ServicePostingId")
                         .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Freelancer");
 
                     b.Navigation("ProjectPosting");
 
@@ -636,9 +719,12 @@ namespace ServiceSphere.repositery.Data.Migrations
                         .WithMany("Notifications")
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", null)
+                    b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", "Freelncer")
                         .WithMany("Notifications")
-                        .HasForeignKey("FreelancerId");
+                        .HasForeignKey("FreelancerId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Freelncer");
                 });
 
             modelBuilder.Entity("ServiceSphere.core.Entities.Assessments.Review", b =>
@@ -647,9 +733,13 @@ namespace ServiceSphere.repositery.Data.Migrations
                         .WithMany("Reviews")
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", null)
+                    b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", "Freelncer")
                         .WithMany("Reviews")
-                        .HasForeignKey("FreelancerId");
+                        .HasForeignKey("FreelancerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Freelncer");
                 });
 
             modelBuilder.Entity("ServiceSphere.core.Entities.Identity.Address", b =>
@@ -746,6 +836,13 @@ namespace ServiceSphere.repositery.Data.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("ServiceSphere.core.Entities.Users.Freelancer.Skill", b =>
+                {
+                    b.HasOne("ServiceSphere.core.Entities.Users.Freelancer.Freelancer", null)
+                        .WithMany("Skills")
+                        .HasForeignKey("FreelancerId");
+                });
+
             modelBuilder.Entity("ServiceSphere.core.Entities.Users.Freelancer.Team", b =>
                 {
                     b.HasOne("ServiceSphere.core.Entities.Posting.ProjectPosting", "ProjectPosting")
@@ -817,9 +914,13 @@ namespace ServiceSphere.repositery.Data.Migrations
                 {
                     b.Navigation("Notifications");
 
+                    b.Navigation("Proposals");
+
                     b.Navigation("Reviews");
 
                     b.Navigation("Services");
+
+                    b.Navigation("Skills");
                 });
 #pragma warning restore 612, 618
         }

@@ -25,8 +25,8 @@ namespace ServiceSphere.core.Entities.Assessments
         //public string? ClientId { get; set; }
         //public Client Client { get; set; }
 
-        //public string? FreelancerId { get; set; }
-        //public Freelancer  Freelncer { get; set; }
+        public string? FreelancerId { get; set; }
+        public Freelancer?  Freelncer { get; set; }
         public bool IsRead { get; set; } = false;
         public string UserId { get; set; }
 

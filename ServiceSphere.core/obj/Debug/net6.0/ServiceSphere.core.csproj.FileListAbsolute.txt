@@ -106,3 +106,39 @@ C:\Users\SOUQ ALCOMPUMARTS\Desktop\ServiceSphere.APIs\ServiceSphere.core\obj\Deb
 C:\Users\SOUQ ALCOMPUMARTS\Desktop\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\refint\ServiceSphere.core.dll
 C:\Users\SOUQ ALCOMPUMARTS\Desktop\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.pdb
 C:\Users\SOUQ ALCOMPUMARTS\Desktop\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ref\ServiceSphere.core.dll
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.deps.json
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.dll
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.pdb
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.csproj.AssemblyReference.cache
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.AssemblyInfoInputs.cache
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.AssemblyInfo.cs
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.csproj.CoreCompileInputs.cache
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.dll
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\refint\ServiceSphere.core.dll
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.pdb
+C:\Users\DeS\Downloads\ServiceSphere.APIs\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ref\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.deps.json
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.pdb
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.csproj.AssemblyReference.cache
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.AssemblyInfoInputs.cache
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.AssemblyInfo.cs
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.csproj.CoreCompileInputs.cache
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\refint\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.pdb
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\apis final\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ref\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.deps.json
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\bin\Debug\net6.0\ServiceSphere.core.pdb
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.csproj.AssemblyReference.cache
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.AssemblyInfoInputs.cache
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.AssemblyInfo.cs
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.csproj.CoreCompileInputs.cache
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\refint\ServiceSphere.core.dll
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ServiceSphere.core.pdb
+C:\Users\SOUQ ALCOMPUMARTS\Desktop\SSBackend\ServiceSphereBackend\ServiceSphere.APIs\ServiceSphere.core\obj\Debug\net6.0\ref\ServiceSphere.core.dll

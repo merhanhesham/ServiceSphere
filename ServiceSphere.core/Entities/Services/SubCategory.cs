@@ -1,4 +1,5 @@
 ﻿using ServiceSphere.core.Entities.Posting;
+using ServiceSphere.core.Entities.Users.Freelancer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,5 +35,7 @@ namespace ServiceSphere.core.Entities.Services
         public Category Category { get; set; }
 
         public ICollection<ProjectPosting> ProjectPostings { get; set; } = new HashSet<ProjectPosting>();
+
+        public ICollection<Freelancer> Freelancers { get; set; } = new HashSet<Freelancer>();
     }
 }

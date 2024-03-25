@@ -46,15 +46,16 @@ namespace ServiceSphere.core.Entities.Users
         //public EgyptCity City { get; set; }
         public UserType UserType { get; set; }
         public string? GoogleAccount { get; set; }
+        public string UserId { get; set; }
 
-        
+
         //public string? ZipCode { get; set; }
 
-     //   public ICollection<Notification> Notifications { get; set; }=new HashSet<Notification>();
-    //    public  ICollection<Review> Reviews { get; set; } =new HashSet<Review>();
+        //   public ICollection<Notification> Notifications { get; set; }=new HashSet<Notification>();
+        //    public  ICollection<Review> Reviews { get; set; } =new HashSet<Review>();
 
-        
-       
+
+
         // Image
 
 

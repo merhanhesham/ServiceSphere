@@ -20,7 +20,7 @@ namespace ServiceSphere.repositery.Data.Configurations
             //nav prop for post
             builder.HasOne(p => p.ServicePosting).WithMany(po => po.Proposals).HasForeignKey(p => p.ServicePostingId).OnDelete(DeleteBehavior.NoAction);
             //nav prop for freelancer
-            //builder.HasOne(p => p.Freelancer).WithMany(f => f.Proposals).HasForeignKey(p => p.FreelancerId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(p => p.Freelancer).WithMany(f => f.Proposals).HasForeignKey(p => p.FreelancerId).OnDelete(DeleteBehavior.NoAction);
 
             //required
             //builder.Property(p=>p.Status).IsRequired();

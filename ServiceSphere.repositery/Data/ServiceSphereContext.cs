@@ -2,8 +2,10 @@
 using ServiceSphere.core.Entities;
 using ServiceSphere.core.Entities.Agreements;
 using ServiceSphere.core.Entities.Assessments;
+using ServiceSphere.core.Entities.Identity;
 using ServiceSphere.core.Entities.Posting;
 using ServiceSphere.core.Entities.Services;
+
 using ServiceSphere.core.Entities.Users;
 using ServiceSphere.core.Entities.Users.Freelancer;
 using System;
@@ -39,7 +41,11 @@ namespace ServiceSphere.repositery.Data
       //  public DbSet<User> Users { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Team> Teams { get; set; }
-     //   public DbSet<ProjectSubCategory> ProjectSubCategory { get; set; }
+        //   public DbSet<ProjectSubCategory> ProjectSubCategory { get; set; }
 
+    //    public DbSet<FreelancerUser> FreelancerUsers { get; set; }
+        public DbSet<AppUser> AppUser { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Address> Addresses { get; set; }
     }
 }

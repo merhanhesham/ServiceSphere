@@ -29,6 +29,7 @@ namespace ServiceSphere.services
             //object of claim class
             new Claim(ClaimTypes.GivenName,user.DisplayName),
             new Claim(ClaimTypes.Email,user.Email),
+            
           };
             //bzwed s3obet eltoken by adding roles
             var userRoles = await userManager.GetRolesAsync(user);

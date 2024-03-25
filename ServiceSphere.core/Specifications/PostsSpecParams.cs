@@ -12,6 +12,7 @@ namespace ServiceSphere.core.Specifications
         public int? CategoryId { get; set; }
 
         public string? userID { get; set; }
+        public string? EmailAddress { get; set; }
 
         /*private int pageSize = 5;//default value l2ny kda kda h apply pagination
 

@@ -2,13 +2,18 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using ServiceSphere.APIs.DTOs;
 using ServiceSphere.APIs.Errors;
 using ServiceSphere.APIs.Extensions;
 using ServiceSphere.core.Entities.Identity;
+using ServiceSphere.core.Entities.Services;
 using ServiceSphere.core.Entities.Users;
+using ServiceSphere.core.Entities.Users.Freelancer;
+using ServiceSphere.core.Repositeries.contract;
 using ServiceSphere.core.Services.contract;
+using ServiceSphere.repositery.Data;
 using System.Security.Claims;
 
 namespace ServiceSphere.APIs.Controllers
@@ -20,13 +25,16 @@ namespace ServiceSphere.APIs.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IAuthService _authService;
         private readonly IMapper _mapper;
-
-        public AccountController(UserManager<AppUser>userManager,SignInManager<AppUser>signInManager, IAuthService authService,IMapper mapper)
+        private readonly ServiceSphereContext _serviceSphereContext;
+        
+        public AccountController(UserManager<AppUser>userManager,SignInManager<AppUser>signInManager, IAuthService authService,IMapper mapper,ServiceSphereContext serviceSphereContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _authService = authService;
             _mapper = mapper;
+            _serviceSphereContext = serviceSphereContext;
+           
         }
 
         [HttpPost("Login")]
@@ -39,6 +47,7 @@ namespace ServiceSphere.APIs.Controllers
             if (!result.Succeeded) { return Unauthorized(new ApiResponse(401)); }
             return Ok(new UserDto()
             {
+                Id=User.Id,
                 DisplayName = User.DisplayName,
                 Email = User.Email,
                 Token = await _authService.CreateTokenAsync(User, _userManager)
@@ -72,12 +81,41 @@ namespace ServiceSphere.APIs.Controllers
                 return BadRequest(new ApiResponse(400, "Failed to assign user role"));
             }
 
+            
+
+            if (model.Role.ToLower() == "client")
+            {
+                var client = new Client()
+                {
+                    DisplayName = User.DisplayName,
+                    UserType = UserType.Client,
+                    Email = User.Email,
+                    PhoneNumber = User.PhoneNumber,
+                };
+                await _serviceSphereContext.Clients.AddAsync(client);
+                await _serviceSphereContext.SaveChangesAsync();
+            }
+            else if (model.Role.ToLower() == "freelancer")
+            {
+                var freelancer = new Freelancer()
+                {
+                    UserName=User.UserName,
+                    DisplayName = User.DisplayName,
+                    UserType = UserType.Freelancer,
+                    Email = User.Email,
+                    PhoneNumber = User.PhoneNumber
+                };
+                await _serviceSphereContext.Freelancers.AddAsync(freelancer);
+                await _serviceSphereContext.SaveChangesAsync();
+            }
+
             var ReturnedUser = new UserDto()
             {
                 DisplayName = User.DisplayName,
                 Email = User.Email,
                 Token = await _authService.CreateTokenAsync(User, _userManager)
             };
+           
             return Ok(ReturnedUser);
         }
 
@@ -114,24 +152,54 @@ namespace ServiceSphere.APIs.Controllers
             var user = await _userManager.FindByEmailAsync(Email);
             return Ok(new UserDto()
             {
+                Id=user.Id,
                 DisplayName = user.DisplayName,
                 Email = user.Email,
                 Token = await _authService.CreateTokenAsync(user, _userManager)
             });
         }
 
+        /*[Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpPost("Address")]
+        public async Task<ActionResult<AddressDto>> CreateAddress(AddressDto model)
+        {
+            var user = await _userManager.FindUserWithAddressAsync(User);
+            if (user == null)
+            {
+                return NotFound(new ApiResponse(404, "User not found."));
+            }
+
+            // Assuming model does not contain an Id value for POST operations
+            var address = _mapper.Map<Address>(model); // Map DTO to Address entity
+
+            // Add the address to the user - Implement this method in your user manager or a related service
+            var result = await _userManager.AddAddressToUserAsync(user, address);
+
+            if (!result.Succeeded)
+            {
+                return BadRequest(new ApiResponse(400, "Failed to add the address"));
+            }
+
+            // Optionally map back to DTO if you need to return the created object (now with an Id)
+            var createdAddressDto = _mapper.Map<AddressDto>(address);
+
+            return CreatedAtAction(nameof(CreateAddress), new { id = address.Id }, createdAddressDto);
+        }*/
+
+
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPut("Address")]
         public async Task<ActionResult<AddressDto>> UpdateAddress(AddressDto model)
         {
             var user = await _userManager.FindUserWithAddressAsync(User);
-            model.Id = user.Address.Id;
+            //model.Id = user.Address.Id;
             var mappedAddress = _mapper.Map<Address>(model);
 
             user.Address = mappedAddress;
             var Result = await _userManager.UpdateAsync(user);
-            if (!Result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the address"));
+           // var saveResult = await _userManager.
 
+            if (!Result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the address"));
             return Ok(model);
         }
 

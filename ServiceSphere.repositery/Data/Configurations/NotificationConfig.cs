@@ -15,7 +15,7 @@ namespace ServiceSphere.repositery.Data.Configurations
         {
             //builder.HasOne(n => n.User).WithMany(u => u.Notifications).HasForeignKey(n => n.UserId).IsRequired();
            // builder.HasOne(n=>n.Client).WithMany(c=>c.Notifications).HasForeignKey(n=>n.ClientId).OnDelete(DeleteBehavior.NoAction); ;
-            //builder.HasOne(n => n.Freelncer).WithMany(c => c.Notifications).HasForeignKey(n => n.FreelancerId).OnDelete(DeleteBehavior.NoAction); ;
+            builder.HasOne(n => n.Freelncer).WithMany(c => c.Notifications).HasForeignKey(n => n.FreelancerId).OnDelete(DeleteBehavior.NoAction); ;
 
             //required
             //builder.Property(n=>n.Status).IsRequired();

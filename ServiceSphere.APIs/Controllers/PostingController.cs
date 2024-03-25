@@ -16,6 +16,7 @@ using ServiceSphere.core.Entities.Users;
 using ServiceSphere.core.Repositeries.contract;
 using ServiceSphere.core.Specifications;
 using ServiceSphere.repositery.Data;
+using System.Net.Mail;
 using System.Security.Claims;
 
 namespace ServiceSphere.APIs.Controllers
@@ -60,19 +61,22 @@ namespace ServiceSphere.APIs.Controllers
                   return NotFound(new ApiResponse(404, "Target user not found."));
             }
             // Check if the user exists
-            var userExists = await _userManager.FindByIdAsync(model.UserId) != null;
-            if (!userExists)
-            {
-                return NotFound($"User with ID {model.UserId} not found.");
-            }
+            //var userExists = await _userManager.FindByIdAsync(model.UserId) != null;
+            //if (!userExists)
+            //{
+            //    return NotFound($"User with ID {model.UserId} not found.");
+            //}
 
+            model.UserId= user.Id;
+            
             // Create new service posting
             var servicePosting = new ServicePosting
             {
                 Title = model.Title,
                 Description = model.Description,
                 CategoryId = model.CategoryId,
-                userID = model.UserId// Assuming UserId is a foreign key to the ApplicationUser table
+                userID = model.UserId,// Assuming UserId is a foreign key to the ApplicationUser table
+                EmailAddress=Email
             };
             _ServiceSphereContext.ServicePostings.Add(servicePosting);
 
@@ -195,6 +199,7 @@ namespace ServiceSphere.APIs.Controllers
                 .ToListAsync();*/
 
             // Map the retrieved service postings to DTOs
+            
             var servicePostingsDto = ServicePostings.Select(sp => new ServicePostingDto
             {
                 Title = sp.Title,
@@ -315,12 +320,17 @@ namespace ServiceSphere.APIs.Controllers
             {
                 return NotFound(new ApiResponse(404, "You don't have a post with this ID"));
             }
+            
 
             var MappedServicePostings = _mapper.Map<GetServicePostingByIdDto>(servicePosting);
             // Optionally, load and map related user data from the UserManager if needed
 
             return Ok(MappedServicePostings);
         }
+
+        
+
+
 
         [HttpGet("GetProjectPosting/{id}")]
         [Authorize(AuthenticationSchemes = "Bearer")]

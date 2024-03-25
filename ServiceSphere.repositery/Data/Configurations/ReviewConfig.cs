@@ -15,7 +15,7 @@ namespace ServiceSphere.repositery.Data.Configurations
         {
             //nav prop for user
             //builder.HasOne(r => r.Client).WithMany(u => u.Reviews).HasForeignKey(r => r.ClientId).OnDelete(DeleteBehavior.NoAction);
-            //builder.HasOne(r => r.Freelncer).WithMany(u => u.Reviews).HasForeignKey(r => r.FreelancerId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(r => r.Freelncer).WithMany(u => u.Reviews).HasForeignKey(r => r.FreelancerId).OnDelete(DeleteBehavior.NoAction);
 
             //required
             builder.Property(r => r.Rating).IsRequired();
