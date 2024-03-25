@@ -1,6 +1,7 @@
 # ServiceSphere Freelancing Platform Backend API
 
-ServiceSphere is a robust platform designed to facilitate seamless interactions between freelancers, clients, and project teams across various industries. Our platform simplifies the process of finding, hiring, and managing freelance talent for projects ranging from simple services to extensive project collaborations. This document provides an overview of the backend API endpoints that power the ServiceSphere platform, detailing the core functionalities and technologies used.
+About the project: ServiceSphere is a cutting-edge online platform meticulously designed to redefine the landscape of freelance collaboration and project management. the comprehensive solution serves as a nexus connecting clients, freelancers, and project teams across diverse industries, including Engineering & Architecture, Construction/Renovation, Event Planning, and Education. One of the standout features of ServiceSphere is its innovative approach to Extensive Projects, where AI plays a pivotal role in breaking down projects into services and forming dedicated freelance teams. It combines the flexibility of hiring individual freelancers for specific tasks and the capability to form dedicated teams for extensive projects.
+ServiceSphere is a robust platform designed to facilitate seamless interactions between freelancers, clients, and project teams across various industries. the platform simplifies the process of finding, hiring, and managing freelance talent for projects ranging from simple services to extensive project collaborations. This document provides an overview of the backend API endpoints that power the ServiceSphere platform, detailing the core functionalities and technologies used.
 
 ## Core Features
 
