@@ -32,7 +32,7 @@ ServiceSphere is a robust platform designed to facilitate seamless interactions 
 The ServiceSphere platform backend is built using a range of modern technologies and practices to ensure scalability, security, and performance:
 
 - **ASP.NET Core**: A cross-platform, high-performance framework for building modern, cloud-based, Internet-connected applications.
-- **Entity Framework Core**: An object-database mapper for .NET, enabling developers to work with a database using .NET objects.
+- **Entity Framework Core**: An object-database mapper for .NET, enabling developers to work with a database using .NET objects, utilizing mutiple design patterns like Specification design pattern.
 - **JWT Authentication**: Secure user authentication using JSON Web Tokens to manage user sessions and protect endpoints.
 - **Microsoft SQL Server**: A relational database management system used to store and manage the platform's data securely.
 - **RESTful API Design**: Adheres to REST principles, providing a scalable approach to organizing the backend services into logical resources.
